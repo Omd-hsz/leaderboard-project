@@ -1,1 +1,87 @@
-<!DOCTYPE html> <html> <head> <meta charset="UTF-8" /> <title>Leaderboard</title> <style> body { font-family: Arial, sans-serif; margin: 20px; } h1 { text-align: center; } .leaderboard-entry { display: flex; align-items: center; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 6px; } .leaderboard-entry img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 10px; } .leaderboard-entry .name { font-weight: bold; margin-right: auto; } .leaderboard-entry .score { font-size: 1.2em; color: #333; } </style> </head> <body> <h1>Leaderboard</h1> <div id="leaderboard"></div> <script> // 1) REPLACE the below URL with your published Google Sheet link (CSV). const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRM_bD3CHrtSDMOt2-iJ04wbivtj99QdolG2ehTI1ZD8kkYyMA5rL4b-LFyTy6KSXQiJWeP_1sW9SUK/pub?output=csv"; // 2) A simple CSV parsing function: function parseCSV(csv) { const lines = csv.trim().split("\n"); // The first line might be headers: "Photo,Name,Score" // So let's skip that in the final result if needed. const headers = lines[0].split(","); const data = lines.slice(1).map(line => { const values = line.split(","); return { Photo: values[0], Name: values[1], Score: parseInt(values[2], 10) // Convert to number }; }); return data; } // 3) Fetch the CSV data from Google Sheets, parse, sort, and display: fetch(sheetURL) .then(response => response.text()) .then(csvText => { const data = parseCSV(csvText); // Sort by Score DESC data.sort((a, b) => b.Score - a.Score); // Generate HTML for each entry const leaderboard = document.getElementById("leaderboard"); data.forEach(entry => { const row = document.createElement("div"); row.className = "leaderboard-entry"; const img = document.createElement("img"); img.src = entry.Photo; // The direct URL to the image const nameSpan = document.createElement("div"); nameSpan.className = "name"; nameSpan.textContent = entry.Name; const scoreSpan = document.createElement("div"); scoreSpan.className = "score"; scoreSpan.textContent = entry.Score; row.appendChild(img); row.appendChild(nameSpan); row.appendChild(scoreSpan); leaderboard.appendChild(row); }); }) .catch(error => { console.error("Error fetching or parsing CSV:", error); }); </script> </body> </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .leaderboard-entry {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .leaderboard-entry img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .leaderboard-entry .name {
+            font-weight: bold;
+            margin-right: auto;
+        }
+        .leaderboard-entry .score {
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <div id="leaderboard"></div>
+
+    <script>
+        const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRM_bD3CHrtSDMOt2-iJ04wbivtj99QdolG2ehTI1ZD8kkYyMA5rL4b-LFyTy6KSXQiJWeP_1sW9SUK/pub?output=csv";
+
+        function parseCSV(csv) {
+            const lines = csv.trim().split("\n");
+            return lines.slice(1).map(line => {
+                const [Photo, Name, Score] = line.split(",");
+                return { Photo, Name, Score: parseInt(Score, 10) };
+            });
+        }
+
+        fetch(sheetURL)
+            .then(response => response.text())
+            .then(csvText => {
+                const data = parseCSV(csvText);
+                data.sort((a, b) => b.Score - a.Score);
+
+                const leaderboard = document.getElementById("leaderboard");
+                data.forEach(entry => {
+                    const row = document.createElement("div");
+                    row.className = "leaderboard-entry";
+
+                    const img = document.createElement("img");
+                    img.src = entry.Photo;
+
+                    const nameSpan = document.createElement("div");
+                    nameSpan.className = "name";
+                    nameSpan.textContent = entry.Name;
+
+                    const scoreSpan = document.createElement("div");
+                    scoreSpan.className = "score";
+                    scoreSpan.textContent = entry.Score;
+
+                    row.appendChild(img);
+                    row.appendChild(nameSpan);
+                    row.appendChild(scoreSpan);
+                    leaderboard.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching or parsing CSV:", error);
+            });
+    </script>
+</body>
+</html>

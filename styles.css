@@ -7,8 +7,6 @@ h1 {
     position: sticky;
     top: -15px;
     height: 60px;
-    background-color: red;
-    color: white;
     z-index: 1001;
     text-align: center;
     margin: 0; /* Remove margin to ensure stickiness */

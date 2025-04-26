@@ -15,7 +15,6 @@ h1 {
 
 #leaderboard-container, #store-container {
     margin-bottom: 40px; /* Space between sections */
-    border-bottom: 1px solid #bbb;
 }
 
 #leaderboard-section {
@@ -27,6 +26,7 @@ h1 {
     margin-bottom: 20px;    /* Adds some space below the section */
     background-color: white; /* Ensures the background is visible when sticky */
     z-index: 1000;
+    border-bottom: 1px solid #bbb;
 }
 
 .color-circle {

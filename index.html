@@ -22,6 +22,7 @@
             color: white;
             font-size: 1.5em;
             margin-right: 10px;
+            background-color: #6C7A89; /* Gray-bluish color */
         }
         .leaderboard-entry {
             display: flex;
@@ -29,7 +30,7 @@
             margin: 10px auto;
             padding: 10px;
             width: 50%;
-            border: 2px solid #ccc;
+            border: 2px solid #d83939;
             border-radius: 50px;
             box-sizing: border-box;
         }
@@ -60,15 +61,6 @@
             });
         }
 
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
         function randomCharacter() {
             const chars = ['❂', '✼', '❖', '❉', '⌘']; // You can add more characters
             return chars[Math.floor(Math.random() * chars.length)];
@@ -93,7 +85,6 @@
                     const circle = document.createElement("div");
                     circle.className = "color-circle";
                     circle.textContent = randomCharacter();
-                    circle.style.backgroundColor = getRandomColor();
 
                     const nameSpan = document.createElement("div");
                     nameSpan.className = "name";

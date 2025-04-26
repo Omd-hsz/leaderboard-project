@@ -177,6 +177,7 @@ h1 {
     padding: 10px;
 }
 #fullscreenBtn {
+    font-family: 'Vazir', sans-serif;
     position: fixed;
     bottom: 20px;
     right: 20px;

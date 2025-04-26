@@ -12,10 +12,8 @@ leaderboard-section {
     top: 0;                 /* Sticks the element to the top of the viewport */
     height: 500px;          /* Fixed height */
     overflow-y: auto;       /* Enables vertical scrolling */
-    border: 1px solid #ccc; /* Optional: adds a border for better visual separation */
     padding: 10px;          /* Optional: adds padding inside the container */
     margin-bottom: 20px;    /* Adds some space below the section */
-    background-color: white; /* Ensures the background is visible when sticky */
     z-index: 1000;
 }
 

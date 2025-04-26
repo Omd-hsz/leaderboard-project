@@ -7,7 +7,8 @@ h1 {
     position: sticky;
     top: -15px;
     height: 60px;
-    background-color: #fff;
+    background-color: red;
+    color: white;
     z-index: 1001;
     text-align: center;
     margin: 0; /* Remove margin to ensure stickiness */
@@ -22,11 +23,10 @@ h1 {
     top: 0;                 /* Sticks the element to the top of the viewport */
     height: 500px;          /* Fixed height */
     overflow-y: auto;       /* Enables vertical scrolling */
-    padding: 10px;          /* Optional: adds padding inside the container */
+    padding: 0px;          /* Optional: adds padding inside the container */
     margin-bottom: 20px;    /* Adds some space below the section */
     background-color: white; /* Ensures the background is visible when sticky */
     z-index: 1000;
-    border-bottom: 1px solid #bbb;
 }
 
 .color-circle {

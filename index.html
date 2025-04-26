@@ -10,7 +10,22 @@
     <div id="leaderboard-section"></div> <!-- Container for Leaderboard content -->
     <div id="store-section"></div> <!-- Container for Store content -->
 
+    <!-- Fullscreen button -->
+    <button id="fullscreenBtn">Enter Fullscreen</button>
+
     <script src="leaderboard.js"></script>
     <script src="store.js"></script>
+    <script>
+        // JavaScript to toggle fullscreen mode
+        document.getElementById('fullscreenBtn').addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+    </script>
 </body>
 </html>

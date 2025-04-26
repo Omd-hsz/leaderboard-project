@@ -76,7 +76,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: calc(100vh-500x);
+    height: calc(100vh-500px);
     gap: 20px;
     margin-top: 20px;
     position: fixed;

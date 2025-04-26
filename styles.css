@@ -79,10 +79,8 @@ h1 {
     gap: 20px;
     margin-top: 20px;
     position: fixed;
-    bottom: 0;
     left: 0;
     right: 0;
-    height: 300px; /* Adjust this height as needed */
     overflow-y: auto;
     padding: 10px;
 }

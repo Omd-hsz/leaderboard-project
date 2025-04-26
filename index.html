@@ -12,14 +12,11 @@
         h1 {
             text-align: center;
         }
-        /* Two-column layout for leaderboard */
-        .columns-container {
-            display: flex;
-            justify-content: space-between;
+        .leaderboard-container {
             width: 100%;
-        }
-        .column {
-            width: 48%;
+            max-height: 70vh; /* Adjust as necessary to fit other elements on the page */
+            overflow-y: auto; /* Allows vertical scrolling */
+            margin-bottom: 40px;
         }
         .color-circle {
             width: 50px;
@@ -42,6 +39,7 @@
             border: 2px solid #d83939;
             border-radius: 50px;
             box-sizing: border-box;
+            background-color: #f9f9f9;
         }
         .leaderboard-entry .name {
             font-weight: bold;
@@ -123,10 +121,7 @@
 </head>
 <body>
     <h1>لیــــدربـــــرد مغـــــازه</h1>
-    <div class="columns-container">
-        <div id="leaderboard-left" class="column"></div>
-        <div id="leaderboard-right" class="column"></div>
-    </div>
+    <div class="leaderboard-container" id="leaderboard-container"></div>
 
     <div class="section-divider"></div>
 
@@ -160,10 +155,9 @@
                 const data = parseCSV(csvText);
                 data.sort((a, b) => b.Score - a.Score);
 
-                const leaderboardLeft = document.getElementById("leaderboard-left");
-                const leaderboardRight = document.getElementById("leaderboard-right");
+                const leaderboardContainer = document.getElementById("leaderboard-container");
 
-                data.forEach((entry, index) => {
+                data.forEach((entry) => {
                     const row = document.createElement("div");
                     row.className = "leaderboard-entry";
 
@@ -183,11 +177,7 @@
                     row.appendChild(nameSpan);
                     row.appendChild(scoreSpan);
 
-                    if (index % 2 === 0) {
-                        leaderboardLeft.appendChild(row);
-                    } else {
-                        leaderboardRight.appendChild(row);
-                    }
+                    leaderboardContainer.appendChild(row);
                 });
 
                 addStoreItems();

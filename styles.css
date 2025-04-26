@@ -8,6 +8,7 @@ h1 {
 }
 
 #leaderboard-section {
+    width: 50%;
     height: 500px;           /* Fixed height */
     overflow-y: auto;        /* Enables vertical scrolling */
     border: 1px solid #ccc;  /* Optional: adds a border for better visual separation */

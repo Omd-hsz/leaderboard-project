@@ -1,128 +1,31 @@
-body {
-    font-family: 'Vazir', Arial, sans-serif;
-    margin: 20px;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Vazir', sans-serif;
 }
 
-h1 {
-    text-align: center;
-}
-
-.leaderboard-container {
-    width: 50%;
-    max-height: 70vh; /* Adjust as necessary to fit other elements on the page */
-    overflow-y: auto; /* Allows vertical scrolling */
-    margin: 0 auto 40px auto; /* Centering and adding bottom margin */
-}
-
-.color-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5em;
-    margin-right: 10px;
-    background-color: #6C7A89; /* Gray-bluish color */
+    height: 100vh; /* Full viewport height */
 }
 
-.leaderboard-entry {
-    display: flex;
-    align-items: center;
-    margin: 10px auto;
-    padding: 10px;
-    width: 90%;
-    border: 2px solid #d83939;
-    border-radius: 50px;
+.section {
+    flex: 1; /* Each section takes up half the width of the container */
+    overflow-y: auto; /* Make sections scrollable if content overflows */
+    padding: 20px;
     box-sizing: border-box;
-    background-color: #f9f9f9;
+    border-left: 1px solid #ccc;
+    background-color: #f9f9f9; /* Optional: Light background for visibility */
 }
 
-.leaderboard-entry .name {
-    font-weight: bold;
-    margin-right: auto;
+/* Remove border on the leftmost section */
+.section:first-child {
+    border-left: none;
 }
 
-.leaderboard-entry .score {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #d83939;
-    margin-right: 20px;
-}
-
-/* Store section styles */
-.section-divider {
-    margin: 40px 0;
-    border-top: 1px solid #ddd;
-}
-
-#store-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.item-card {
-    width: 240px;
-    height: 320px;
-    perspective: 1000px;
-    cursor: pointer;
-    margin: 15px;
-}
-
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.card-front,
-.card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-front {
-    background-color: #f9f9f9;
-}
-
-.card-back {
-    background-color: #ffffff;
-    transform: rotateY(180deg);
-}
-
-.item-image {
-    width: 80%;
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.item-name {
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.item-price {
-    color: #e63946;
-    font-weight: bold;
-}
-
-.qr-image {
-    width: 70%;
-    height: auto;
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
 }

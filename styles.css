@@ -17,6 +17,7 @@ leaderboard-section {
     margin-bottom: 20px;    /* Adds some space below the section */
     background-color: white; /* Ensures the background is visible when sticky */
     z-index: 1000;
+}
 
 .color-circle {
     width: 50px;

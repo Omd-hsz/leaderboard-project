@@ -14,6 +14,7 @@ h1 {
     overflow-y: auto;       /* Enables vertical scrolling */
     padding: 10px;          /* Optional: adds padding inside the container */
     margin-bottom: 20px;    /* Adds some space below the section */
+    background-color: white; /* Ensures the background is visible when sticky */
     z-index: 1000;
 }
 

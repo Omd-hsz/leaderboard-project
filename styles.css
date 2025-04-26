@@ -4,6 +4,7 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
 body {
     font-family: 'Vazir', Arial, sans-serif;
 }
@@ -24,13 +25,13 @@ h1 {
 }
 
 #leaderboard-section {
-    position: sticky;       /* Makes the position sticky */
-    top: 0;                 /* Sticks the element to the top of the viewport */
-    height: 500px;          /* Fixed height */
-    overflow-y: auto;       /* Enables vertical scrolling */
-    padding: 0px;          /* Optional: adds padding inside the container */
-    margin-bottom: 20px;    /* Adds some space below the section */
-    background-color: #c32e2e; /* Ensures the background is visible when sticky */
+    position: sticky;
+    top: 0;
+    height: 500px;
+    overflow-y: auto;
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: #c32e2e;
     z-index: 1000;
     border-bottom: 2px solid #c32e2e;
 }
@@ -74,30 +75,37 @@ h1 {
 
 /* Store section styles */
 .section-divider {
-    height: 1px;             /* Thickness of the divider */
-    background-color: #ccc;  /* Color of the divider */
-    margin: 40px 0;          /* Vertical margin to separate sections */
+    height: 1px;
+    background-color: #ccc;
+    margin: 40px 0;
 }
 
-#store-container {
+.store-container-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.store-rows-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: calc(100vh - 700px);
+    flex-direction: column;
     gap: 20px;
-    margin-top: 20px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    overflow-y: auto;
-    padding: 10px;
+    padding: 20px 0;
+    min-width: min-content;
 }
 
+.store-item-row {
+    display: flex;
+    gap: 20px;
+    min-width: min-content;
+}
+
+.store-item-card,
 .item-card {
     width: 240px;
     height: 320px;
     perspective: 1000px;
     cursor: pointer;
+    flex-shrink: 0;
     margin: 15px;
 }
 
@@ -153,4 +161,18 @@ h1 {
 .qr-image {
     width: 70%;
     height: auto;
+}
+
+#store-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: calc(100vh - 700px);
+    gap: 20px;
+    margin-top: 20px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    padding: 10px;
 }

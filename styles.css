@@ -9,12 +9,12 @@ h1 {
     background-color: #fff;
     z-index: 1001;
     text-align: center;
-    padding: 10px 0; /* Optional: add padding around titles */
     margin: 0; /* Remove margin to ensure stickiness */
 }
 
 #leaderboard-container, #store-container {
     margin-bottom: 40px; /* Space between sections */
+    margin: 80px 20px 40px;
 }
 
 #leaderboard-section {

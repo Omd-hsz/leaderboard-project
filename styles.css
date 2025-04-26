@@ -8,6 +8,7 @@ h1 {
     top: -15px;
     height: 60px;
     z-index: 1001;
+    background-color: white;
     text-align: center;
     margin: 0; /* Remove margin to ensure stickiness */
 }

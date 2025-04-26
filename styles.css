@@ -25,6 +25,7 @@ h1 {
     margin-bottom: 20px;    /* Adds some space below the section */
     background-color: #c32e2e; /* Ensures the background is visible when sticky */
     z-index: 1000;
+    border-bottom: 2px solid #c32e2e;
 }
 
 .color-circle {

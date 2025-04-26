@@ -15,6 +15,7 @@ h1 {
 
 #leaderboard-container, #store-container {
     margin-bottom: 40px; /* Space between sections */
+    border-bottom: 1px solid #bbb;
 }
 
 #leaderboard-section {

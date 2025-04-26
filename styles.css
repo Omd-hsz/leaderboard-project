@@ -4,7 +4,17 @@ body {
 }
 
 h1 {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1001;
     text-align: center;
+    padding: 10px 0; /* Optional: add padding around titles */
+    margin: 0; /* Remove margin to ensure stickiness */
+}
+
+#leaderboard-container, #store-container {
+    margin-bottom: 40px; /* Space between sections */
 }
 
 #leaderboard-section {
@@ -57,8 +67,8 @@ h1 {
 
 /* Store section styles */
 .section-divider {
-    height: 2px;             /* Thickness of the divider */
-    background-color: #000;  /* Color of the divider */
+    height: 1px;             /* Thickness of the divider */
+    background-color: #ccc;  /* Color of the divider */
     margin: 40px 0;          /* Vertical margin to separate sections */
 }
 

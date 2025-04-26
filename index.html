@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>لیدربرد مغازه</title>
+    <title>Leaderboard</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
@@ -12,37 +12,42 @@
         h1 {
             text-align: center;
         }
-        .leaderboard-entry {
-            display: flex;
-            align-items: center;
-            margin: 10px auto; /* Center the boxes */
-            padding: 20px;
-            width: 50%; /* Set the width to 50% of the screen */
-            border: 5px solid #d83939;
-            border-radius: 20px;
-            box-sizing: border-box;
-        }
-        .leaderboard-entry img {
+        .color-circle {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            object-fit: cover;
+            background-color: #007BFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
             margin-right: 10px;
+        }
+        .leaderboard-entry {
+            display: flex;
+            align-items: center;
+            margin: 10px auto;
+            padding: 10px;
+            width: 50%;
+            border: 5px solid #d83939;
+            border-radius: 6px;
+            box-sizing: border-box;
         }
         .leaderboard-entry .name {
             font-weight: bold;
             margin-right: auto;
         }
         .leaderboard-entry .score {
-            font-size: 1.5em; /* Larger font size */
-            font-weight: bold; /* Bold text */
-            color: #d83939; /* Color same as border */
-            margin-right: 40px; /* More space from right border */
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #d83939;
+            margin-right: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>لیدربرد مغازه</h1>
+    <h1>Leaderboard</h1>
     <div id="leaderboard"></div>
 
     <script>
@@ -52,9 +57,14 @@
             const lines = csv.trim().split("\n");
             return lines.slice(1).map(line => {
                 const [Photo, Name, Score] = line.split(",");
-                return { Photo, Name, Score: parseInt(Score, 10) };
+                return { Name, Score: parseInt(Score, 10) };
             });
         }
+
+        const randomCharacter = () => {
+            const chars = ['❂', '✼', '❖', '❉', '⌘']; // You can add more characters
+            return chars[Math.floor(Math.random() * chars.length)];
+        };
 
         fetch(sheetURL)
             .then(response => response.text())
@@ -67,8 +77,9 @@
                     const row = document.createElement("div");
                     row.className = "leaderboard-entry";
 
-                    const img = document.createElement("img");
-                    img.src = entry.Photo;
+                    const circle = document.createElement("div");
+                    circle.className = "color-circle";
+                    circle.textContent = randomCharacter();
 
                     const nameSpan = document.createElement("div");
                     nameSpan.className = "name";
@@ -78,7 +89,7 @@
                     scoreSpan.className = "score";
                     scoreSpan.textContent = entry.Score;
 
-                    row.appendChild(img);
+                    row.appendChild(circle);
                     row.appendChild(nameSpan);
                     row.appendChild(scoreSpan);
                     leaderboard.appendChild(row);

@@ -13,7 +13,8 @@ h1 {
     margin: 0; /* Remove margin to ensure stickiness */
 }
 
-#leaderboard-container, #store-container {
+#leaderboard-container {
+    background: red;
 }
 
 #leaderboard-section {

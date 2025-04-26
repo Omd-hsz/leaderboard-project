@@ -7,11 +7,12 @@ h1 {
     text-align: center;
 }
 
-.leaderboard-container {
-    width: 50%;
-    max-height: 70vh; /* Adjust as necessary to fit other elements on the page */
-    overflow-y: auto; /* Allows vertical scrolling */
-    margin: 0 auto 40px auto; /* Centering and adding bottom margin */
+#leaderboard-section {
+    height: 500px;           /* Fixed height */
+    overflow-y: auto;        /* Enables vertical scrolling */
+    border: 1px solid #ccc;  /* Optional: adds a border for better visual separation */
+    padding: 10px;           /* Optional: adds padding inside the container */
+    margin-bottom: 20px;     /* Adds some space below the section */
 }
 
 .color-circle {
@@ -53,8 +54,9 @@ h1 {
 
 /* Store section styles */
 .section-divider {
-    margin: 40px 0;
-    border-top: 1px solid #ddd;
+    height: 2px;             /* Thickness of the divider */
+    background-color: #000;  /* Color of the divider */
+    margin: 40px 0;          /* Vertical margin to separate sections */
 }
 
 #store-container {

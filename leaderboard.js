@@ -32,13 +32,23 @@ fetch(sheetURL)
                 leaderboardHTML.innerHTML = leaderboardTemplate;
                 const leaderboardContainer = document.getElementById("leaderboard-container");
 
-                data.forEach((entry) => {
+                data.forEach((entry, index) => {
                     const row = document.createElement("div");
                     row.className = "leaderboard-entry";
 
                     const circle = document.createElement("div");
                     circle.className = "color-circle";
-                    circle.textContent = randomCharacter();
+                    
+                    // Use medal emojis for top 3 places
+                    if (index === 0) {
+                        circle.textContent = "🥇"; // First place
+                    } else if (index === 1) {
+                        circle.textContent = "🥈"; // Second place
+                    } else if (index === 2) {
+                        circle.textContent = "🥉"; // Third place
+                    } else {
+                        circle.textContent = randomCharacter(); // For other positions
+                    }
 
                     const nameSpan = document.createElement("div");
                     nameSpan.className = "name";

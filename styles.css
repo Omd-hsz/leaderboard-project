@@ -197,7 +197,7 @@ h1 {
 
 #japanImageBtn {
     font-family: 'Vazir', sans-serif;
-    position: fixed;
+    position: flex;
     bottom: 20px;
     right: 20px;
     padding: 10px 20px;

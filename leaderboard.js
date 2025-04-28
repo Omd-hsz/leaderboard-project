@@ -99,6 +99,40 @@ fetch(sheetURL)
                 font-family: "Vazir", "vazirmatn", Arial, sans-serif !important; /* Fix font name */
                 direction: rtl !important; /* Ensure proper RTL display */
             }
+            
+            /* Scroll down button styles */
+            #scroll-down-btn {
+                position: fixed; /* Use fixed instead of absolute */
+                bottom: 200px; /* Position it above the store section */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: rgba(200, 46, 46, 0.5);
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                z-index: 1002;
+                transition: all 0.3s ease;
+                border: none;
+                pointer-events: auto;
+            }
+            
+            #scroll-down-btn:hover {
+                background-color: rgba(200, 46, 46, 0.8);
+                transform: translateX(-50%) translateY(-5px);
+            }
+            
+            #scroll-down-btn.hidden {
+                opacity: 0;
+                pointer-events: none;
+            }
+        `;
 
         // Create style element and append to head
         const styleElement = document.createElement('style');

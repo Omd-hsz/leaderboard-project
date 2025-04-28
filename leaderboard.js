@@ -8,11 +8,6 @@ function parseCSV(csv) {
     });
 }
 
-function randomCharacter() {
-    const chars = ['❂', '✼', '❖', '❉', '⌘'];
-    return chars[Math.floor(Math.random() * chars.length)];
-}
-
 function convertToPersianNumber(number) {
     const persianDigits = '۰۱۲۳۴۵۶۷۸۹';
     return number.toString().replace(/\d/g, (digit) => persianDigits[digit]);

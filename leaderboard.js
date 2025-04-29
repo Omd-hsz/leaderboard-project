@@ -63,21 +63,12 @@ fetch(sheetURL)
                     const circle = document.createElement("div");
                     circle.className = "color-circle";
                     
-                    // Use medal emojis for top 3 places and regular numbers for positions 4 and beyond
-                    if (index === 0) {
-                        circle.textContent = "🥇"; // First place
-                    } else if (index === 1) {
-                        circle.textContent = "🥈"; // Second place
-                    } else if (index === 2) {
-                        circle.textContent = "🥉"; // Third place
-                    } else {
-                        // Convert position number to Persian digits for consistency
-                        circle.textContent = convertToPersianNumber(index + 1);
-                        
-                        // Ensure Vazir font is applied directly to this element
-                        circle.style.fontFamily = '"Vazir", "vazirmatn", Arial, sans-serif';
-                        circle.style.direction = 'rtl';
-                    }
+                    // Convert position number to Persian digits for consistency
+                    circle.textContent = convertToPersianNumber(index + 1);
+                    
+                    // Ensure Vazir font is applied directly to this element
+                    circle.style.fontFamily = '"Vazir", "vazirmatn", Arial, sans-serif';
+                    circle.style.direction = 'rtl';
 
                     const nameSpan = document.createElement("div");
                     nameSpan.className = "name";

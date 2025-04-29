@@ -45,7 +45,7 @@ h1 {
     justify-content: center;
     color: white;
     font-size: 1.5em;
-    margin-right: 10px;
+    margin-left: 10px;
     background-color: #6C7A89; /* Gray-bluish color */
 }
 
@@ -55,22 +55,22 @@ h1 {
     margin: 10px auto;
     padding: 10px;
     width: 40%;
-    border: 2px solid #c32e2e;
     border-radius: 50px;
     box-sizing: border-box;
     background-color: rgb(249, 249, 249);
 }
 
 .leaderboard-entry .name {
-    font-weight: bold;
     margin-right: auto;
+    font-size: 24px;
+    color: #6C7A89;
 }
 
 .leaderboard-entry .score {
     font-size: 1.5em;
     font-weight: bold;
-    color: #d83939;
-    margin-right: 20px;
+    color: #c32e2e;
+    margin-left: 20px;
 }
 
 /* Store section styles */

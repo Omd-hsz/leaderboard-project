@@ -24,57 +24,7 @@ fetch(sheetURL)
 
         // Enhanced styles for top 3 places with more prominent gradients
         const topPlaceStyles = `
-            .leaderboard-entry.first-place {
-                background: linear-gradient(135deg, #ffd700 0%, #f9d423 30%, #e6b422 60%, #ffd700 100%) !important;
-                border: 2px solid #e6b422 !important;
-                box-shadow: 0 4px 12px rgba(230, 180, 34, 0.4) !important;
-                transition: all 0.3s ease !important;
-            }
-            .leaderboard-entry.first-place .name, 
-            .leaderboard-entry.first-place .score {
-                color: #222222 !important;
-                text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5) !important;
-                font-weight: bold !important;
-            }
-            .leaderboard-entry.first-place:hover {
-                transform: translateY(-2px) !important;
-                box-shadow: 0 6px 14px rgba(230, 180, 34, 0.5) !important;
-            }
-            
-            .leaderboard-entry.second-place {
-                background: linear-gradient(135deg, #e3e3e3 0%, #c0c0c0 30%, #a9a9a9 60%, #e3e3e3 100%) !important;
-                border: 2px solid #a9a9a9 !important;
-                box-shadow: 0 4px 12px rgba(169, 169, 169, 0.4) !important;
-                transition: all 0.3s ease !important;
-            }
-            .leaderboard-entry.second-place .name, 
-            .leaderboard-entry.second-place .score {
-                color: #222222 !important;
-                text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5) !important;
-                font-weight: bold !important;
-            }
-            .leaderboard-entry.second-place:hover {
-                transform: translateY(-2px) !important;
-                box-shadow: 0 6px 14px rgba(169, 169, 169, 0.5) !important;
-            }
-            
-            .leaderboard-entry.third-place {
-                background: linear-gradient(135deg, #d7995b 0%, #c17e3e 30%, #9c682c 60%, #d7995b 100%) !important;
-                border: 2px solid #9c682c !important;
-                box-shadow: 0 4px 12px rgba(156, 104, 44, 0.4) !important;
-                transition: all 0.3s ease !important;
-            }
-            .leaderboard-entry.third-place .name, 
-            .leaderboard-entry.third-place .score {
-                color: #222222 !important;
-                text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5) !important;
-                font-weight: bold !important;
-            }
-            .leaderboard-entry.third-place:hover {
-                transform: translateY(-2px) !important;
-                box-shadow: 0 6px 14px rgba(156, 104, 44, 0.5) !important;
-            }
-            
+            .leaderboard-entry
             /* Make sure color circles stand out on the gradient backgrounds */
             .first-place .color-circle,
             .second-place .color-circle,

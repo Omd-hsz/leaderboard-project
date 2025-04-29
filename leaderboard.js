@@ -24,11 +24,9 @@ fetch(sheetURL)
 
         // Enhanced styles for top 3 places with more prominent gradients
         const topPlaceStyles = `
-            .leaderboard-entry
-            /* Make sure color circles stand out on the gradient backgrounds */
-            .first-place .color-circle,
-            .second-place .color-circle,
-            .third-place .color-circle {
+            .leaderboard-entry .first-place .color-circle,
+            .leaderboard-entry.second-place .color-circle,
+            .leaderboard-entry.third-place .color-circle {
                 background-color: rgba(255, 255, 255, 0.2) !important;
                 border: 2px solid rgba(255, 255, 255, 0.4) !important;
                 font-size: 1.8em !important;

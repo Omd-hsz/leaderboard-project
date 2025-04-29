@@ -47,7 +47,7 @@ h1 {
     font-size: 1.5em;
     margin-right: 10px;
     background-color: #6C7A89; /* Gray-bluish color */
-    border: 2px solid #6C6A53;
+    border: 2px solid #c32e2e;
 }
 
 .leaderboard-entry {
@@ -56,10 +56,10 @@ h1 {
     margin: 10px auto;
     padding: 10px;
     width: 40%;
-    border: 2px solid #d83939;
+    border: 2px solid #c32e2e;
     border-radius: 50px;
     box-sizing: border-box;
-    background-color: rgba(249, 249, 249, 0.5);
+    background-color: rgb(249, 249, 249);
 }
 
 .leaderboard-entry .name {

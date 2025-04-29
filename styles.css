@@ -38,6 +38,7 @@ h1 {
 
 .leaderboard-entry {
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     margin: 10px auto;
     padding: 10px;

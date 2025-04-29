@@ -19,6 +19,7 @@ fetch(sheetURL)
         const data = parseCSV(csvText);
         data.sort((a, b) => b.Score - a.Score);
 
+        // The section where leaderboard HTML will be placed
         const leaderboardHTML = document.getElementById("leaderboard-section");
 
         // Enhanced styles for top 3 places with more prominent gradients
@@ -91,41 +92,8 @@ fetch(sheetURL)
                 color: white !important;
                 font-size: 1.5em !important;
                 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) !important;
-                font-family: "Vazir", "vazirmatn", Arial, sans-serif !important; /* Fix font name */
-                direction: rtl !important; /* Ensure proper RTL display */
-            }
-            
-            /* Scroll down button styles */
-            #scroll-down-btn {
-                position: fixed; /* Use fixed instead of absolute */
-                bottom: 200px; /* Position it above the store section */
-                left: 50%;
-                transform: translateX(-50%);
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                background-color: rgba(200, 46, 46, 0.5);
-                color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 24px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                cursor: pointer;
-                z-index: 1002;
-                transition: all 0.3s ease;
-                border: none;
-                pointer-events: auto;
-            }
-            
-            #scroll-down-btn:hover {
-                background-color: rgba(200, 46, 46, 0.8);
-                transform: translateX(-50%) translateY(-5px);
-            }
-            
-            #scroll-down-btn.hidden {
-                opacity: 0;
-                pointer-events: none;
+                font-family: "Vazir", "vazirmatn", Arial, sans-serif !important;
+                direction: rtl !important;
             }
         `;
 
@@ -134,51 +102,12 @@ fetch(sheetURL)
         styleElement.textContent = topPlaceStyles;
         document.head.appendChild(styleElement);
 
+        // Fetch and apply leaderboard template
         fetch('leaderboard.html')
             .then(response => response.text())
             .then(leaderboardTemplate => {
                 leaderboardHTML.innerHTML = leaderboardTemplate;
                 const leaderboardContainer = document.getElementById("leaderboard-container");
-                
-                // No need for position relative or button wrapper
-                
-                // Add scroll down button directly to the body
-                const scrollButton = document.createElement('button');
-                scrollButton.id = 'scroll-down-btn';
-                scrollButton.innerHTML = '&#x25BC;'; // Down arrow symbol
-                scrollButton.title = 'پایین رفتن';
-                document.body.appendChild(scrollButton);
-                
-                // Add scroll functionality
-                scrollButton.addEventListener('click', () => {
-                    leaderboardHTML.scrollBy({
-                        top: 300,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Show the button only when the leaderboard is visible and not scrolled much
-                window.addEventListener('scroll', () => {
-                    const leaderboardRect = leaderboardHTML.getBoundingClientRect();
-                    const isLeaderboardVisible = 
-                        leaderboardRect.top < window.innerHeight && 
-                        leaderboardRect.bottom > 0;
-                    
-                    if (isLeaderboardVisible && leaderboardHTML.scrollTop < 50) {
-                        scrollButton.classList.remove('hidden');
-                    } else {
-                        scrollButton.classList.add('hidden');
-                    }
-                });
-                
-                // Also hide button when scrolling within the leaderboard
-                leaderboardHTML.addEventListener('scroll', () => {
-                    if (leaderboardHTML.scrollTop > 50) {
-                        scrollButton.classList.add('hidden');
-                    } else {
-                        scrollButton.classList.remove('hidden');
-                    }
-                });
 
                 data.forEach((entry, index) => {
                     const row = document.createElement("div");

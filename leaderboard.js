@@ -25,13 +25,13 @@ fetch(sheetURL)
         // Enhanced styles for top 3 places with more prominent gradients
         const topPlaceStyles = `
             .leaderboard-entry.first-place .color-circle {
-                background: linear-gradient(135deg, #ffd700 0%, #f9d423 30%, #e6b422 60%, #ffd700 100%) !important;
+                background: url("Gold_1.png") center/cover no-repeat !important;
             }
             .second-place .color-circle {
-                background: linear-gradient(135deg, #e3e3e3 0%, #c0c0c0 30%, #a9a9a9 60%, #e3e3e3 100%) !important;
+                background: url("Silver_1.png") center/cover no-repeat !important;
             }
             .third-place .color-circle {
-                background: linear-gradient(135deg, #d7995b 0%, #c17e3e 30%, #9c682c 60%, #d7995b 100%) !important;
+                background: url("Bronze_1.png") center/cover no-repeat !important;
             }
         `;
 

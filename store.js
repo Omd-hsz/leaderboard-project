@@ -5,32 +5,46 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.text())
         .then(storeTemplate => {
             storeHTML.innerHTML = storeTemplate;
-            addStoreItemCards();
+            loadItemsFromFolder();
         });
 
-    function addStoreItemCards() {
+    function loadItemsFromFolder() {
+        // Define the list of items that match your image filenames in the GoodsImage folder
+        const itemNames = [
+            "Premium Avatar", 
+            "Special Badge", 
+            "Extra Points", 
+            "Unique Theme", 
+            "Rare Collectible", 
+            "Profile Theme", 
+            "Digital Sticker", 
+            "Custom Emote", 
+            "Account Boost", 
+            "Mystery Box", 
+            "Golden Ticket", 
+            "Elite Status", 
+            "Digital Pet", 
+            "Special Effect", 
+            "Exclusive Background"
+        ];
+        
+        // Create store items with actual image paths
+        const storeItems = itemNames.map(name => {
+            // Generate a filename based on the item name (remove spaces, lowercase)
+            const filename = name.replace(/\s+/g, '').toLowerCase();
+            
+            return {
+                name: name,
+                emoji: getRandomEmoji(), // Assign an emoji to each item
+                price: Math.floor(Math.random() * 10 + 1) * 100, // Random price between 100-1000
+                qrCode: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(name)}`,
+            };
+        });
+
         function getRandomEmoji() {
             const emojis = ["😀", "🚀", "🎮", "🎁", "💎", "🏆", "⭐️", "🔥", "💫", "🎯", "🎨", "🎭", "🎧", "📱", "🎪"];
             return emojis[Math.floor(Math.random() * emojis.length)];
         }
-        
-        function getRandomItem() {
-            const names = ["Premium Avatar", "Special Badge", "Extra Points", "Unique Theme", 
-                          "Rare Collectible", "Profile Theme", "Digital Sticker", "Custom Emote", 
-                          "Account Boost", "Mystery Box", "Golden Ticket", "Elite Status", 
-                          "Digital Pet", "Special Effect", "Exclusive Background"];
-            const prices = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-            
-            return {
-                name: names[Math.floor(Math.random() * names.length)],
-                image: `https://via.placeholder.com/240x200?text=${Math.floor(Math.random() * 1000)}`,
-                price: prices[Math.floor(Math.random() * prices.length)],
-                qrCode: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=item${Math.floor(Math.random() * 10000)}`,
-            };
-        }
-
-        // Generate 20 random store items
-        const storeItems = Array.from({ length: 20 }, () => getRandomItem());
 
         const storeContainer = document.getElementById("store-container");
         
@@ -57,16 +71,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 const cardFront = document.createElement("div");
                 cardFront.className = "card-front";
 
-                const emojiSpan = document.createElement("span");
-                emojiSpan.textContent = getRandomEmoji();
-                emojiSpan.style.fontSize = "40px";
-                emojiSpan.style.display = "block";
-                emojiSpan.style.marginBottom = "10px";
-
-                const itemImage = document.createElement("img");
-                itemImage.className = "item-image";
-                itemImage.src = item.image;
-                itemImage.alt = item.name;
+                // Create large emoji display instead of small emoji + image
+                const emojiDisplay = document.createElement("div");
+                emojiDisplay.className = "item-emoji";
+                emojiDisplay.textContent = item.emoji;
+                emojiDisplay.style.fontSize = "80px";
+                emojiDisplay.style.display = "block";
+                emojiDisplay.style.margin = "30px 0";
+                emojiDisplay.style.textAlign = "center";
 
                 const itemName = document.createElement("div");
                 itemName.className = "item-name";
@@ -76,8 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 itemPrice.className = "item-price";
                 itemPrice.textContent = `قیمت ${item.price}`;
 
-                cardFront.appendChild(emojiSpan);
-                cardFront.appendChild(itemImage);
+                cardFront.appendChild(emojiDisplay);
                 cardFront.appendChild(itemName);
                 cardFront.appendChild(itemPrice);
 

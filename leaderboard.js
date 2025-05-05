@@ -25,13 +25,13 @@ fetch(sheetURL)
         // Enhanced styles for top 3 places with more prominent gradients
         const topPlaceStyles = `
             .leaderboard-entry.first-place .color-circle {
-                background: url("Gold_1.png") center/cover no-repeat !important;
+                background: url("/medal/Gold_1.png") center/cover no-repeat !important;
             }
             .second-place .color-circle {
-                background: url("Silver_1.png") center/cover no-repeat !important;
+                background: url("/medal/Silver_1.png") center/cover no-repeat !important;
             }
             .third-place .color-circle {
-                background: url("Bronze_1.png") center/cover no-repeat !important;
+                background: url("/medal/Bronze_1.png") center/cover no-repeat !important;
             }
         `;
 

@@ -24,8 +24,7 @@ h1 {
 #award-section {
 height: 50%;
 position: relative; / So we can position the img at the bottom if we like /
-background: #e1e1e1; / or any other background /
-/ Add your own styling here */
+background: #650202; / or any other background /
 }
 
 /* Center the award image at the bottom /

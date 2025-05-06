@@ -1,21 +1,33 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <title>Leaderboard & Store</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
+<!DOCTYPE html> 
+<html lang="fa"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Leaderboard & Award</title> 
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" /> 
     <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
+</head> 
 <body>
-    <div id="leaderboard-section"></div> <!-- Container for Leaderboard content -->
-    <div id="store-section"></div> <!-- Container for Store content -->
+    <!-- Leaderboard container -->
+    <div id="leaderboard-section"></div>
+
+    <!-- Store section (commented out for now) 
+    <div id="store-section"></div> 
+    -->
+
+    <!-- Award section (bottom half) -->
+    <div id="award-section">
+        <img src="path/to/your/award-image.png" alt="Award" class="award-image">
+    </div>
 
     <!-- Fullscreen button -->
     <button id="fullscreenBtn">نمایش تمام‌صفحه</button>
+
     <!-- Button to navigate to Japan image page -->
     <button id="japanImageBtn" onclick="window.location.href='japan.html'">View Japan Image</button>
+
+    <!-- Your scripts -->
     <script src="leaderboard.js"></script>
-    <script src="store.js"></script>
+    <!-- <script src="store.js"></script>  Remove or comment out if you’re not using it -->
     <script>
         // JavaScript to toggle fullscreen mode
         document.getElementById('fullscreenBtn').addEventListener('click', () => {
@@ -28,5 +40,5 @@
             }
         });
     </script>
-</body>
+</body> 
 </html>

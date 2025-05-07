@@ -52,7 +52,7 @@ height: auto;
     z-index: 1000;
 }
 
-#leaderboard-section::after {
+#leaderboard-container::after {
 content: "";
 position: absolute;
 bottom: 0;

@@ -22,7 +22,7 @@ h1 {
 
 /* Award section: bottom 50% /
 #award-section {
-height: calc(100vh - 700px);
+height: calc(100vh - 580px);
 position: relative; / So we can position the img at the bottom if we like /
 background: #650202; / or any other background /
 }
@@ -45,7 +45,7 @@ height: auto;
 #leaderboard-section {
     position: sticky;
     top: 0;
-    height: 700px;
+    height: 580px;
     overflow-y: auto;
     padding: 0;
     background-color: #650202;

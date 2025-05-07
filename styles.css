@@ -43,7 +43,7 @@ height: auto;
 }
 
 #leaderboard-section {
-    position: relative;
+    position: sticky;
     top: 0;
     height: 580px;
     overflow-y: auto;

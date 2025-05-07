@@ -42,7 +42,7 @@ height: auto;
     background-color: #650202;
 }
 
-::after {
+#leaderboard-container::after {
 content: "";
 position: absolute;
 bottom: 0;

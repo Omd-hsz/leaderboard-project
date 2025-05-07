@@ -21,6 +21,22 @@ h1 {
     color: #650202;
 }
 
+.center-line {
+    width: 100%;
+    background: #650202;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.center-line hr {
+    display: inline-block;
+    width: 50%;
+    height: 2px;
+    border: none;
+    margin: 0;
+    background: #fff;
+}
 .award-image {
     position: fixed;     /* Fix it to the bottom */
     bottom: 0;

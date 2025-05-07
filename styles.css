@@ -50,9 +50,18 @@ height: auto;
     padding: 0;
     background-color: #650202;
     z-index: 1000;
-    border-bottom: 2px solid #650202;
 }
 
+#leaderboard-section::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 50%;                / half of the container’s width /
+height: 2px;               / thickness of the “border” /
+background-color: white; / same color as before */
+}
 .leaderboard-entry {
     display: flex;
     flex-direction: row-reverse;

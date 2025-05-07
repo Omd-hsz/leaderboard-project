@@ -27,15 +27,20 @@ h1 {
     text-align: center;
     margin: 0;
     padding: 0;
+    position: relative; /* Ensure correct positioning */
 }
 
 .center-line hr {
     width: 50%;
     height: 2px;
     border: none;
-    margin: 0;
+    margin: 0 auto; /* Center horizontally */
     background: #fff;
+    position: absolute; /* Position absolutely in the container */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for exact centering */
 }
+
 .award-image {
     position: fixed;     /* Fix it to the bottom */
     bottom: 0;

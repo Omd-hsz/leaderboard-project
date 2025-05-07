@@ -42,17 +42,7 @@ height: auto;
     background-color: #650202;
 }
 
-#leaderboard-section {
-    position: sticky;
-    top: 0;
-    height: 580px;
-    overflow-y: auto;
-    padding: 0;
-    background-color: #650202;
-    z-index: 1000;
-}
-
-#leaderboard-container::after {
+::after {
 content: "";
 position: absolute;
 bottom: 0;
@@ -61,6 +51,16 @@ transform: translateX(-50%);
 width: 50%;
 background-color: white;
 height: 2px;
+}
+
+#leaderboard-section {
+    position: sticky;
+    top: 0;
+    height: 580px;
+    overflow-y: auto;
+    padding: 0;
+    background-color: #650202;
+    z-index: 1000;
 }
 
 .leaderboard-entry {

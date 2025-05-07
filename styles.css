@@ -31,13 +31,12 @@ h1 {
 }
 
 .center-line hr {
+    display:block;
     width: 50%;
     height: 2px;
     border: none;
     margin: 0 auto; /* Center horizontally */
     background: #fff;
-    position: absolute; /* Position absolutely in the container */
-    top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust for exact centering */
 }
 

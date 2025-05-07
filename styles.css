@@ -42,17 +42,6 @@ height: auto;
     background-color: #650202;
 }
 
-#leaderboard-container::after {
-content: "";
-position: absolute;
-bottom: 0;
-left: 50%;
-transform: translateX(-50%);
-width: 50%;
-background-color: white;
-height: 2px;
-}
-
 #leaderboard-section {
     position: sticky;
     top: 0;

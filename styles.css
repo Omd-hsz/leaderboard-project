@@ -58,9 +58,9 @@ position: absolute;
 bottom: 0;
 left: 50%;
 transform: translateX(-50%);
-width: 50%;                / half of the container’s width /
-height: 2px;               / thickness of the “border” /
-background-color: white; / same color as before */
+width: 50%;
+height: 2px;
+color: white;
 }
 .leaderboard-entry {
     display: flex;

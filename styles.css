@@ -59,15 +59,6 @@ position: relative;
 background: #650202;
 }
 
-.award-image {
-position: absolute;
-bottom: 0;
-left: 50%;
-transform: translateX(-50%);
-width: 100px;
-height: auto;
-}
-
 #leaderboard-container {
     background-color: #650202;
 }
@@ -231,29 +222,10 @@ height: auto;
     right: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
+    background-color: rgba(1,1,1,0);
     color: white;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#fullscreenBtn:hover {
-    background-color: #45a049;
-}
-
-#japanImageBtn {
-    font-family: 'Vazir', sans-serif;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4091BF;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

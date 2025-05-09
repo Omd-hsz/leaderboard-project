@@ -53,20 +53,17 @@ h1 {
     z-index: 100;        /* Ensure it appears above other content */
 }
 
-/* Award section: bottom 50% /
 #award-section {
 height: calc(100vh - 580px);
-position: relative; / So we can position the img at the bottom if we like /
-background: #650202; / or any other background /
+position: relative;
+background: #650202;
 }
 
-/* Center the award image at the bottom /
 .award-image {
 position: absolute;
 bottom: 0;
 left: 50%;
 transform: translateX(-50%);
-/ Adjust width/height as needed */
 width: 100px;
 height: auto;
 }

@@ -225,11 +225,11 @@ background: #650202;
     background-color: rgba(1,1,1,0);
     color: white;
     border: none;
-    border-radius: 50%;
+    border-radius: 10px;
     cursor: pointer;
     z-index: 101;
 }
 
 #fullscreenBtn:hover {
-    background-color: #45a049;
+    background-color: rgba(1,1,1,0.2);
 }

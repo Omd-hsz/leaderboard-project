@@ -35,11 +35,12 @@ h1 {
 .center-line hr {
     display:block;
     width: 50%;
-    height: 2px;
+    height: 1px;
     border: none;
     margin: 0 auto; /* Center horizontally */
     background: #fff;
     transform: translateY(-50%); /* Adjust for exact centering */
+    padding: 4px;
 }
 
 .award-image {

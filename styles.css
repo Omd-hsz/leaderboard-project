@@ -29,6 +29,7 @@ h1 {
     margin: 0;
     padding: 0;
     position: relative; /* Ensure correct positioning */
+    z-index: 102;
 }
 
 .center-line hr {

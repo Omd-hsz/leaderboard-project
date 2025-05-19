@@ -15,65 +15,80 @@ body {
 }
 
 h1 {
-       position: sticky;
-       top: 0;
-       height: 60px;
-       z-index: 1001;
-       background-color: white;  <-- Inline style in leaderboard.html will override this
-       text-align: center;
-       margin: 0;
-       color: #650202; <-- Inline style in leaderboard.html will override this
-       padding-top: 40px;
-   }
+    position: sticky;
+    top: 0;
+    height: 60px;
+    padding-top: 40px; /* This adds to effective height if box-sizing is content-box */
+    z-index: 1001;
+    background-color: white; /* Overridden by inline style */
+    text-align: center;
+    margin: 0;
+    color: #650202; /* Overridden by inline style */
+    /* box-sizing: content-box; /* Default, unless overridden */
+/* }
+*/
+
 .leaderboard-header-custom {
     display: flex;
-    flex-direction: row-reverse; /* Matches .leaderboard-entry layout */
+    flex-direction: row-reverse; /* Matches entry layout if it uses row-reverse */
     align-items: center;
-    width: 40%; /* Matches .leaderboard-entry width */
-    margin: 0 auto 10px auto; /* Centers horizontally, 0 top margin (will be handled by sticky), 10px bottom margin */
-    padding: 8px 10px; /* Vertical and horizontal padding for the header content */
-    box-sizing: border-box;
-    color: #E0E0E0; /* Light grey text color for the header */
+    justify-content: space-between; /* Distributes space between items */
+    
+    width: 40%; /* CRITICAL: This MUST match your .leaderboard-entry width */
+    margin: 0 auto 10px auto; /* Centers the header block, 10px margin below */
+    
+    /* Horizontal padding should match the .leaderboard-entry's horizontal padding.
+       Example: if .leaderboard-entry has padding: 10px 15px;, use 15px here.
+       Adjust 15px as necessary. */
+    padding: 8px 15px; 
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    
+    color: #E0E0E0; /* Light grey text for header */
     font-weight: bold;
-    font-size: 16px; /* Adjust as needed, typically slightly smaller or distinct from data */
+    font-size: 0.9em; /* Slightly smaller or distinct font size for header */
     
     position: sticky;
-    /* Stick below the main H1. The H1 has height: 60px from styles.css */
-    top: 60px; 
+    /* Assuming h1 is effectively 100px tall (60px height + 40px padding-top with content-box) 
+       Adjust to 60px if h1 is border-box or its actual rendered height is 60px. */
+    top: 100px; 
     background-color: #650202; /* Match the section background to cover scrolling content */
-    z-index: 1000; /* Below the H1 (z-index 1001), but above scrolling entries */
+    z-index: 1000; /* Below H1 (1001), above scrolling entries */
 }
 
-/* Header column for "Score" title - appears on the left due to row-reverse */
-.leaderboard-header-custom .header-col-score {
-    text-align: center; /* Center the header text "شانس در قرعه‌کشی" */
-    color: inherit; /* Inherits color from .leaderboard-header-custom */
-    margin-left: 20px; /* Matches .leaderboard-entry .score's margin-left for alignment */
-    flex-shrink: 0; /* Prevents this column from shrinking too much */
-    /* min-width: 100px; /* You can set a min-width if the text is long and you want to ensure space */
-}
-
-/* Header column for "Name" title - appears in the middle */
-.leaderboard-header-custom .header-col-name {
-    flex-grow: 1; /* Allows this column to take up the remaining space */
-    text-align: right; /* Aligns Persian text to the right */
-    color: inherit; /* Inherits color */
-    padding-right: 5px; /* Optional: small padding to separate from rank placeholder */
-}
-
-/* Placeholder for Rank alignment - appears on the right */
+/* Header column for RANK placeholder (Visually on the RIGHT) */
 .leaderboard-header-custom .header-col-rank-placeholder {
-    width: 50px; /* Matches .leaderboard-entry .color-circle width */
+    width: 50px; /* MUST match the width of .leaderboard-entry .color-circle */
     flex-shrink: 0; /* Prevents shrinking */
-    /* This margin is between the rank placeholder and the Name column.
-       In row-reverse, margin-left on the rightmost item pushes items to its left. */
-    margin-left: 10px; /* Matches .leaderboard-entry .color-circle's margin-left for alignment */
+    /* background-color: rgba(0,0,255,0.2); /* For debugging alignment */
 }
 
-/* Ensure the leaderboard container itself starts after the sticky header + title */
+/* Header column for NAME title (Visually in the MIDDLE) */
+.leaderboard-header-custom .header-col-name {
+    flex-grow: 1; /* Takes up available space in the middle */
+    text-align: right; /* Aligns "اسم" to the right */
+    color: inherit;
+    /* No horizontal margins needed due to justify-content: space-between on parent,
+       but small padding might be desired if text is too close to edges of its allocated space.
+       e.g., padding: 0 5px; */
+    /* background-color: rgba(0,255,0,0.2); /* For debugging alignment */
+}
+
+/* Header column for SCORE title (Visually on the LEFT) */
+.leaderboard-header-custom .header-col-score {
+    text-align: center; /* Center "شانس در قرعه‌کشی" above scores */
+    color: inherit;
+    flex-shrink: 0; /* Prevent shrinking */
+    /* min-width helps if the text is long and you want to ensure it doesn't wrap badly.
+       Adjust value based on how wide the score column in entries actually is.
+       e.g., min-width: 100px;
+       If scores in entries are narrow, this header text might define the column width. */
+    /* background-color: rgba(255,165,0,0.2); /* For debugging alignment */
+}
+
+/* Ensure the main leaderboard container has some top padding if the sticky header feels too close */
 #leaderboard-container {
     background-color: #650202;
-    /* padding-top: 5px; /* Optional: Add a small space if header feels too close to first entry */
+    /* padding-top: 5px; /* Optional small space */
 }
 
 

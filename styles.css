@@ -83,7 +83,7 @@ h1 {
     text-align: center;
     margin-top: 580px;
     padding: 0;
-    position: relative; /* Ensure correct positioning */
+    position: fixed; /* Ensure correct positioning */
     z-index: 102;
 }
 

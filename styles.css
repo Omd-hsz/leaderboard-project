@@ -15,16 +15,67 @@ body {
 }
 
 h1 {
+       position: sticky;
+       top: 0;
+       height: 60px;
+       z-index: 1001;
+       background-color: white;  <-- Inline style in leaderboard.html will override this
+       text-align: center;
+       margin: 0;
+       color: #650202; <-- Inline style in leaderboard.html will override this
+       padding-top: 40px;
+   }
+.leaderboard-header-custom {
+    display: flex;
+    flex-direction: row-reverse; /* Matches .leaderboard-entry layout */
+    align-items: center;
+    width: 40%; /* Matches .leaderboard-entry width */
+    margin: 0 auto 10px auto; /* Centers horizontally, 0 top margin (will be handled by sticky), 10px bottom margin */
+    padding: 8px 10px; /* Vertical and horizontal padding for the header content */
+    box-sizing: border-box;
+    color: #E0E0E0; /* Light grey text color for the header */
+    font-weight: bold;
+    font-size: 16px; /* Adjust as needed, typically slightly smaller or distinct from data */
+    
     position: sticky;
-    top: 0;
-    height: 60px;
-    z-index: 1001;
-    background-color: white;
-    text-align: center;
-    margin: 0; /* Remove margin to ensure stickiness */
-    color: #650202;
-    padding-top: 40px;
+    /* Stick below the main H1. The H1 has height: 60px from styles.css */
+    top: 60px; 
+    background-color: #650202; /* Match the section background to cover scrolling content */
+    z-index: 1000; /* Below the H1 (z-index 1001), but above scrolling entries */
 }
+
+/* Header column for "Score" title - appears on the left due to row-reverse */
+.leaderboard-header-custom .header-col-score {
+    text-align: center; /* Center the header text "شانس در قرعه‌کشی" */
+    color: inherit; /* Inherits color from .leaderboard-header-custom */
+    margin-left: 20px; /* Matches .leaderboard-entry .score's margin-left for alignment */
+    flex-shrink: 0; /* Prevents this column from shrinking too much */
+    /* min-width: 100px; /* You can set a min-width if the text is long and you want to ensure space */
+}
+
+/* Header column for "Name" title - appears in the middle */
+.leaderboard-header-custom .header-col-name {
+    flex-grow: 1; /* Allows this column to take up the remaining space */
+    text-align: right; /* Aligns Persian text to the right */
+    color: inherit; /* Inherits color */
+    padding-right: 5px; /* Optional: small padding to separate from rank placeholder */
+}
+
+/* Placeholder for Rank alignment - appears on the right */
+.leaderboard-header-custom .header-col-rank-placeholder {
+    width: 50px; /* Matches .leaderboard-entry .color-circle width */
+    flex-shrink: 0; /* Prevents shrinking */
+    /* This margin is between the rank placeholder and the Name column.
+       In row-reverse, margin-left on the rightmost item pushes items to its left. */
+    margin-left: 10px; /* Matches .leaderboard-entry .color-circle's margin-left for alignment */
+}
+
+/* Ensure the leaderboard container itself starts after the sticky header + title */
+#leaderboard-container {
+    background-color: #650202;
+    /* padding-top: 5px; /* Optional: Add a small space if header feels too close to first entry */
+}
+
 
 .center-line {
     width: 100%;

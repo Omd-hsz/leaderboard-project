@@ -81,7 +81,7 @@ h1 {
     width: 100%;
     background: #650202;
     text-align: center;
-    margin: 0;
+    margin-top: 580px;
     padding: 0;
     position: relative; /* Ensure correct positioning */
     z-index: 102;
@@ -90,12 +90,12 @@ h1 {
 .center-line hr {
     display:block;
     width: 50%;
-    height: 0.5px;
+    height: 1px;
     border: none;
     margin: 0 auto; /* Center horizontally */
     background: #fff;
     transform: translateY(-50%); /* Adjust for exact centering */
-    padding: 1px;
+    padding: 0px;
 }
 
 .award-image {

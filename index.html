@@ -45,12 +45,11 @@
             location.reload();
         }, 10000);
 
-        // Try to automatically re-enter fullscreen when the page (re)loads
+        // Try to automatically re-enter fullscreen when the page (re)loads by simulating a user click once
         window.addEventListener('load', () => {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen?.().catch(() => {
-                    /* Most browsers require a user gesture – ignore failure */
-                });
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            if (fullscreenBtn && !document.fullscreenElement) {
+                fullscreenBtn.click(); // simulate a user click to meet gesture requirement in most browsers
             }
         });
     </script>

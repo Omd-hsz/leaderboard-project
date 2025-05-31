@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="fa"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Leaderboard & Award</title> 
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head> 
+<body>
+    <!-- Leaderboard container -->
+    <div id="leaderboard-section"></div>
+    <!-- Store section (commented out for now) 
+    <div id="store-section"></div> 
+    -->
+    <div class="center-line">
+      <hr>
+    </div>
+    
+    <!-- Award section (bottom half) -->
+    <div id="award-section">
+        <img src="Award.png" alt="Award" class="award-image">
+    </div>
+
+    <!-- Fullscreen button -->
+    <button id="fullscreenBtn"><b>[+]</b></button>
+
+    <!-- Your scripts -->
+    <script src="leaderboard.js"></script>
+    <!-- <script src="store.js"></script>  Remove or comment out if you're not using it -->
+    <script src="keepAwake.js"></script>
+    <script>
+        // JavaScript to toggle fullscreen mode
+        document.getElementById('fullscreenBtn').addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+    </script>
+</body> 
+</html>

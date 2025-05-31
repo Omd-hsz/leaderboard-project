@@ -37,4 +37,14 @@
 
   // Kick off the periodic clicks.
   setInterval(dispatchClick, INTERVAL_MS);
-})(); 
+})();
+
+let clickCount = 0;
+
+document.addEventListener('mousedown', e => {
+  // Filter only the synthetic ones, if you like:
+  if (e.clientX === 0 && e.clientY === 0 && e.isTrusted === false) {
+    clickCount++;
+    console.log(`Synthetic click #${clickCount}`, Date.now());
+  }
+}); 

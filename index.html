@@ -26,7 +26,7 @@
 
     <!-- Your scripts -->
     <script src="leaderboard.js"></script>
-    <!-- <script src="store.js"></script>  Remove or comment out if you’re not using it -->
+    <!-- <script src="store.js"></script>  Remove or comment out if you're not using it -->
     <script>
         // JavaScript to toggle fullscreen mode
         document.getElementById('fullscreenBtn').addEventListener('click', () => {
@@ -36,6 +36,21 @@
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
                 }
+            }
+        });
+
+        // Auto-refresh every 10 minutes (600000 ms)
+        setInterval(() => {
+            // Reloading the page; some browsers exit fullscreen on reload, we will request it again on load
+            location.reload();
+        }, 10000);
+
+        // Try to automatically re-enter fullscreen when the page (re)loads
+        window.addEventListener('load', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen?.().catch(() => {
+                    /* Most browsers require a user gesture – ignore failure */
+                });
             }
         });
     </script>
